@@ -637,10 +637,40 @@ body {
     box-shadow: 0 2px 8px rgba(229, 57, 53, 0.2);
 }
 
+.admin-btn.tag {
+    background: linear-gradient(135deg, #AB47BC 0%, #8E24AA 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(142, 36, 170, 0.2);
+}
+
 .admin-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* 表情包标签 */
+.meme-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.meme-tag {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    color: white;
+}
+
+.meme-tag.cute { background: linear-gradient(135deg, #FF8A65 0%, #FF5722 100%); }
+.meme-tag.meme { background: linear-gradient(135deg, #4FC3F7 0%, #039BE5 100%); }
+.meme-tag.maid { background: linear-gradient(135deg, #F48FB1 0%, #D81B60 100%); }
+.meme-tag.funny { background: linear-gradient(135deg, #FFD54F 0%, #FFB300 100%); color: #333; }
+.meme-tag.featured { background: linear-gradient(135deg, #FF7043 0%, #E64A19 100%); }
+.meme-tag.recommended { background: linear-gradient(135deg, #7E57C2 0%, #5E35B1 100%); }
 
 /* 右侧边栏 */
 .sidebar-right {

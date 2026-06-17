@@ -54,7 +54,8 @@ async function loadData() {
                     downloads: data.downloads || 0,
                     date: data.date || new Date().toISOString().split('T')[0],
                     isGif: data.isGif || false,
-                    hot: data.hot || 50,
+                    hot: data.hot || 0,
+                    tags: data.tags || [],
                     createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
                 };
             });
@@ -74,6 +75,7 @@ async function loadData() {
                     date: data.date || new Date().toISOString().split('T')[0],
                     isGif: data.isGif || false,
                     hot: data.hot || 0,
+                    tags: data.tags || [],
                     createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
                 };
             });
@@ -187,7 +189,11 @@ function renderMemes() {
         } else if (currentCategory === 'gif') {
             filtered = filtered.filter(m => m.isGif);
         } else {
-            filtered = filtered.filter(m => m.category && m.category.includes(currentCategory));
+            filtered = filtered.filter(m => {
+                const cats = m.category || [];
+                const tags = m.tags || [];
+                return cats.includes(currentCategory) || tags.includes(currentCategory);
+            });
         }
     }
 
@@ -223,11 +229,12 @@ function renderMemes() {
 
     grid.innerHTML = filtered.map(meme => `
         <div class="meme-card" data-id="${meme.id || meme.firebaseId}">
-            <img src="${meme.url}" alt="${meme.title}" class="meme-image" loading="lazy" 
+            <img src="${meme.url}" alt="${meme.title}" class="meme-image ${meme.isGif ? 'gif-image' : ''}" loading="lazy" 
                 onerror="this.src='https://via.placeholder.com/300x300/FF8C42/FFFFFF?text=${encodeURIComponent(meme.title || '菲比')}'"
                 onclick="openLightbox('${meme.url}')">
             <div class="meme-info">
                 <div class="meme-title">${meme.title || '未命名'}</div>
+                ${renderMemeTags(meme)}
                 <div class="meme-meta">
                     <div class="meme-stats">
                         <span class="meme-stat">
@@ -253,11 +260,37 @@ function renderMemes() {
                 <div class="admin-actions">
                     <button class="admin-btn edit" onclick="event.stopPropagation(); editMemeName('${meme.firebaseId || meme.id}')">改名</button>
                     <button class="admin-btn delete" onclick="event.stopPropagation(); deleteMeme('${meme.firebaseId || meme.id}')">删除</button>
+                    <button class="admin-btn tag" onclick="event.stopPropagation(); editMemeTags('${meme.firebaseId || meme.id}')">标签</button>
                 </div>
                 ` : ''}
             </div>
         </div>
     `).join('');
+}
+
+// 渲染表情包的标签
+function renderMemeTags(meme) {
+    const allTags = [...(meme.category || []), ...(meme.tags || [])];
+    const uniqueTags = [...new Set(allTags)].filter(tag => tag && tag !== 'static' && tag !== 'gif');
+
+    if (uniqueTags.length === 0) return '';
+
+    const tagNames = {
+        'cute': '超可爱',
+        'meme': '梗图',
+        'maid': '女仆装',
+        'funny': '搞笑',
+        'featured': '精选',
+        'recommended': '站长推荐'
+    };
+
+    return `
+        <div class="meme-tags">
+            ${uniqueTags.map(tag => `
+                <span class="meme-tag ${tag}">${tagNames[tag] || tag}</span>
+            `).join('')}
+        </div>
+    `;
 }
 
 // 更新热门列表
@@ -362,16 +395,28 @@ function switchTab(tab, el) {
     document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
     if (el) el.classList.add('active');
 
+    // 重置分类按钮
+    document.querySelectorAll('.category-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+
     if (tab === 'featured') {
-        currentCategory = 'all';
+        currentCategory = 'featured';
         currentSort = 'hottest';
     } else if (tab === 'all') {
         currentCategory = 'all';
         currentSort = 'newest';
     } else if (tab === 'recommended') {
-        currentCategory = 'all';
+        currentCategory = 'recommended';
         currentSort = 'hottest';
     }
+
+    // 高亮对应的分类按钮
+    const categoryBtns = document.querySelectorAll('.category-tabs .tab-btn');
+    categoryBtns.forEach(btn => {
+        const onclick = btn.getAttribute('onclick');
+        if (onclick && onclick.includes(`'${currentCategory}'`)) {
+            btn.classList.add('active');
+        }
+    });
 
     document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
     const sortBtn = document.querySelector(`button[onclick="sortMemes('${currentSort}', this)"]`);
@@ -645,12 +690,13 @@ async function approveMeme(firebaseId, index) {
         const newMemeData = {
             title: meme.title,
             url: meme.url,
-            category: meme.category,
-            isGif: meme.isGif,
+            category: meme.category || ['cute'],
+            isGif: meme.isGif || false,
             date: meme.date,
             views: 0,
             downloads: 0,
             hot: 0,
+            tags: [],
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         };
 
@@ -746,6 +792,44 @@ async function editMemeName(id) {
     }
 
     meme.title = finalName;
+    renderMemes();
+    updateHotList();
+}
+
+// 修改表情包的标签（精选、站长推荐等）
+async function editMemeTags(id) {
+    if (!isAdmin) return;
+
+    const meme = memesData.find(m => (m.firebaseId || m.id) == id);
+    if (!meme) return;
+
+    const currentTags = [...new Set([...(meme.category || []), ...(meme.tags || [])])].filter(t => t && t !== 'static' && t !== 'gif');
+    const input = prompt('请输入标签，用逗号分隔：\n可选：cute（超可爱）, meme（梗图）, maid（女仆装）, funny（搞笑）, featured（精选）, recommended（站长推荐）\n\n当前标签：' + (currentTags.join(', ') || '无'), currentTags.join(', '));
+
+    if (input === null) return;
+
+    const newTags = input.split(',').map(t => t.trim()).filter(t => t !== '');
+
+    // 保持 category 中的 cute/meme/maid/funny，把 featured/recommended 放到 tags
+    const categoryTags = newTags.filter(t => ['cute', 'meme', 'maid', 'funny'].includes(t));
+    const specialTags = newTags.filter(t => ['featured', 'recommended'].includes(t));
+
+    if (firebaseEnabled && meme.firebaseId) {
+        try {
+            await db.collection('memes').doc(meme.firebaseId).update({
+                category: categoryTags.length > 0 ? categoryTags : ['cute'],
+                tags: specialTags
+            });
+            showToast('标签修改成功！');
+        } catch (e) {
+            console.error('修改标签失败:', e);
+            alert('修改标签失败: ' + e.message);
+            return;
+        }
+    }
+
+    meme.category = categoryTags.length > 0 ? categoryTags : ['cute'];
+    meme.tags = specialTags;
     renderMemes();
     updateHotList();
 }
