@@ -12,6 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="js/firebase-config.js"></script>
     <script src="js/cloudinary-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         /* ===== 修改：上传区域 - 预览图覆盖摄像头位置 ===== */
         .file-upload {
@@ -166,6 +167,16 @@
         </div>
     </section>
 
+    <!-- 站点迁移公告横幅 -->
+    <div class="site-notice-banner">
+        <div class="banner-icon">📢</div>
+        <div class="banner-text">
+            <strong>本站将不再更新！</strong>
+            当前站点仅用于站长迁移数据，并为使用者指引前往全新站点。
+            <a href="https://phoebehub.top/" target="_blank" rel="noopener noreferrer">👉 立即前往新网站：phoebehub.top</a>
+        </div>
+    </div>
+
     <!-- 主内容 -->
     <div class="main-container">
         <!-- 左侧热门 -->
@@ -193,6 +204,7 @@
             <div class="sort-bar">
                 <div class="result-count">共找到 <span id="resultCount">0</span> 个菲比</div>
                 <div class="sort-options">
+                    <button class="batch-download-btn" onclick="batchDownloadAll()" title="将当前所有图片打包下载">📦 批量下载</button>
                     <button class="sort-btn active" onclick="sortMemes('newest', this)">最新</button>
                     <button class="sort-btn" onclick="sortMemes('hottest', this)">最热</button>
                     <button class="sort-btn" onclick="sortMemes('random', this)">随机</button>
@@ -239,15 +251,17 @@
         <div class="modal-content notice-content">
             <button class="modal-close" onclick="closeNoticeModal()">&times;</button>
             <div class="notice-body">
-                <div class="notice-image">⭐</div>
-                <h2 class="notice-title">菲比啾比 ~ 求 Star！</h2>
-                <p class="notice-text">如果你喜欢这个网站，欢迎去 GitHub 给 Phoebe-Hub 点一个 Star，让更多人发现可爱的菲比表情包！</p>
+                <div class="notice-image">🚀</div>
+                <h2 class="notice-title">我们搬家啦！</h2>
+                <p class="notice-text">
+                    本站已停止更新，现有内容仅供站长迁移数据与指引大家前往新站点。<br />
+                    更多可爱菲比表情包、新功能都在新网站等你哦~
+                </p>
                 <div class="notice-actions">
-                    <a href="https://github.com/Kato-Shoko705/Phoebe-Hub" target="_blank" class="notice-link">
-                        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        去 GitHub 点 Star
+                    <a href="https://phoebehub.top/" target="_blank" rel="noopener noreferrer" class="notice-link new-site-link">
+                        前往新网站：phoebehub.top
                     </a>
-                    <button type="button" class="notice-starred-btn" onclick="markNoticeStarred()">我已点星</button>
+                    <button type="button" class="notice-starred-btn" onclick="closeNoticeModal()">我知道了</button>
                 </div>
             </div>
         </div>

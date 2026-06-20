@@ -29,6 +29,7 @@ let nextId = 5;
 let isAdmin = false;
 let dataLoaded = false;
 let currentUser = null;
+let currentFilteredMemes = [];
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
@@ -250,6 +251,8 @@ function renderMemes() {
         filtered.sort(() => Math.random() - 0.5);
     }
 
+    currentFilteredMemes = filtered;
+
     // 更新计数
     const resultCount = document.getElementById('resultCount');
     if (resultCount) resultCount.textContent = filtered.length;
@@ -409,6 +412,100 @@ async function downloadMeme(id) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+// 批量下载当前表情包为压缩包
+async function batchDownloadAll() {
+    if (typeof JSZip === 'undefined') {
+        alert('批量下载组件加载失败，请刷新页面重试。');
+        return;
+    }
+
+    const memes = currentFilteredMemes && currentFilteredMemes.length > 0
+        ? currentFilteredMemes
+        : memesData;
+
+    if (memes.length === 0) {
+        showToast('当前没有可下载的菲比~');
+        return;
+    }
+
+    const zip = new JSZip();
+    const usedNames = new Set();
+    let successCount = 0;
+    let failCount = 0;
+
+    showToast(`正在打包 ${memes.length} 张菲比，请稍候...`);
+
+    for (const meme of memes) {
+        if (!meme.url) continue;
+
+        try {
+            const response = await fetch(meme.url, { mode: 'cors' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const blob = await response.blob();
+
+            const safeTitle = (meme.title || '菲比').replace(/[\\/:*?"<>|]/g, '_').trim() || '菲比';
+            let ext = meme.isGif ? 'gif' : '';
+            if (!ext) {
+                const urlPath = new URL(meme.url, window.location.href).pathname;
+                const matched = urlPath.match(/\.([a-zA-Z0-9]+)$/);
+                if (matched) {
+                    ext = matched[1].toLowerCase();
+                } else if (blob.type) {
+                    const typeMap = {
+                        'image/gif': 'gif',
+                        'image/png': 'png',
+                        'image/webp': 'webp',
+                        'image/jpeg': 'jpg'
+                    };
+                    ext = typeMap[blob.type] || 'jpg';
+                } else {
+                    ext = 'jpg';
+                }
+            }
+
+            let fileName = `${safeTitle}.${ext}`;
+            if (usedNames.has(fileName)) {
+                let i = 2;
+                while (usedNames.has(`${safeTitle}_${i}.${ext}`)) i++;
+                fileName = `${safeTitle}_${i}.${ext}`;
+            }
+            usedNames.add(fileName);
+
+            zip.file(fileName, blob);
+            successCount++;
+        } catch (err) {
+            console.error(`打包失败: ${meme.title || meme.url}`, err);
+            failCount++;
+        }
+    }
+
+    if (successCount === 0) {
+        showToast('打包失败，请检查网络或图片链接。');
+        return;
+    }
+
+    try {
+        const content = await zip.generateAsync({ type: 'blob' });
+        const url = URL.createObjectURL(content);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `菲比表情包_${new Date().toISOString().slice(0, 10)}.zip`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        if (failCount > 0) {
+            showToast(`已打包 ${successCount} 张，${failCount} 张失败。`);
+        } else {
+            showToast(`成功打包 ${successCount} 张菲比！`);
+        }
+    } catch (err) {
+        console.error('生成压缩包失败:', err);
+        showToast('生成压缩包失败，请重试。');
+    }
 }
 
 // 格式化数字
@@ -1038,20 +1135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function shouldShowNotice() {
-    const now = Date.now();
-
-    // 如果点了"我已点星"，24 小时内不显示
-    const starredAt = localStorage.getItem('phoebeNoticeStarredAt');
-    if (starredAt && now - parseInt(starredAt) < 24 * 60 * 60 * 1000) {
-        return false;
-    }
-
-    // 如果点了关闭，10 分钟内不显示
-    const closedAt = localStorage.getItem('phoebeNoticeClosedAt');
-    if (closedAt && now - parseInt(closedAt) < 10 * 60 * 1000) {
-        return false;
-    }
-
+    // 每次进入站点都显示迁移公告
     return true;
 }
 
@@ -1069,11 +1153,8 @@ function closeNoticeModal() {
         modal.classList.remove('show');
         document.body.style.overflow = '';
     }
-    localStorage.setItem('phoebeNoticeClosedAt', Date.now().toString());
 }
 
 function markNoticeStarred() {
-    localStorage.setItem('phoebeNoticeStarredAt', Date.now().toString());
     closeNoticeModal();
-    showToast('感谢你的 Star！菲比啾比 ~');
 }

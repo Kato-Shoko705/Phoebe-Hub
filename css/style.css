@@ -1421,3 +1421,117 @@ body {
     pointer-events: none;
     z-index: -1;
 }
+
+/* 站点迁移公告横幅 */
+.site-notice-banner {
+    max-width: 1400px;
+    margin: 0 auto 35px;
+    padding: 0 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.site-notice-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 3px solid #FF8C42;
+    border-radius: 20px;
+    padding: 22px 28px;
+    box-shadow: 0 10px 40px rgba(255, 140, 66, 0.25);
+    animation: bannerPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes bannerPulse {
+    0%, 100% { box-shadow: 0 10px 40px rgba(255, 140, 66, 0.25); }
+    50% { box-shadow: 0 10px 50px rgba(255, 140, 66, 0.45); }
+}
+
+.site-notice-banner .banner-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.site-notice-banner .banner-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.7;
+    text-align: center;
+}
+
+.site-notice-banner .banner-text strong {
+    color: #E65100;
+    font-weight: 900;
+    margin-right: 6px;
+}
+
+.site-notice-banner .banner-text a {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 800;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(255, 122, 61, 0.35);
+}
+
+.site-notice-banner .banner-text a:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 122, 61, 0.5);
+}
+
+@media (max-width: 768px) {
+    .site-notice-banner {
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px 20px;
+        margin: 0 16px 25px;
+    }
+    .site-notice-banner .banner-text {
+        font-size: 15px;
+    }
+}
+
+/* 批量下载按钮 */
+.batch-download-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+    flex-shrink: 0;
+}
+
+.batch-download-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(67, 160, 71, 0.45);
+    background: linear-gradient(135deg, #57A85A 0%, #388E3C 100%);
+}
+
+.batch-download-btn:active {
+    transform: scale(0.96);
+}
+
+/* 新站公告链接 */
+.notice-link.new-site-link {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    box-shadow: 0 8px 25px rgba(255, 122, 61, 0.35);
+}
+
+.notice-link.new-site-link:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(255, 122, 61, 0.5);
+}
