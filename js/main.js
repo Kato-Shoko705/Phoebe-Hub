@@ -1007,8 +1007,10 @@ async function batchApprove() {
 
     selectedPendingIds.clear();
     showToast(`成功通过 ${successCount} 条内容！`);
+    // 从 pendingData 中移除已审核的项目
+    pendingData = pendingData.filter(p => !selectedPendingIds.has(p.firebaseId));
     await loadData();
-    renderAdminPanel();
+    await refreshPendingList();
 }
 
 async function batchReject() {
@@ -1034,7 +1036,9 @@ async function batchReject() {
 
     selectedPendingIds.clear();
     showToast(`成功拒绝 ${successCount} 条内容`);
-    renderAdminPanel();
+    // 从 pendingData 中移除已拒绝的项目
+    pendingData = pendingData.filter(p => !selectedPendingIds.has(p.firebaseId));
+    await refreshPendingList();
 }
 
 // 批量上传功能
@@ -1204,7 +1208,7 @@ async function approveMeme(firebaseId, index) {
 
         // 4. 重新加载数据
         await loadData();
-        renderAdminPanel();
+        await refreshPendingList();
     } catch (e) {
         console.error('审核通过失败:', e);
         alert('审核失败: ' + e.message);
@@ -1223,8 +1227,8 @@ async function rejectMeme(firebaseId, index) {
         await db.collection('pending').doc(firebaseId).delete();
 
         pendingData.splice(index, 1);
-        renderAdminPanel();
         showToast(`「${meme.title}」已拒绝`);
+        await refreshPendingList();
     } catch (e) {
         console.error('审核拒绝失败:', e);
         alert('拒绝失败: ' + e.message);

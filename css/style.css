@@ -7,12 +7,12 @@
 }
 
 :root {
-    --primary: #7B6BC6;
-    --primary-light: #A99FE8;
-    --primary-dark: #5E4FA8;
-    --secondary: #F5F3FF;
-    --accent: #4A90D9;
-    --accent-light: #7BB3E8;
+    --primary: #C4A6ED;
+    --primary-light: #D8C4F5;
+    --primary-dark: #A885D8;
+    --secondary: #FFF9C9;
+    --accent: #C4A6ED;
+    --accent-light: #D8C4F5;
     --text-dark: #2D2B3F;
     --text-light: #7A7890;
     --white: #FFFFFF;
@@ -27,7 +27,7 @@
 
 body {
     font-family: 'Nunito', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: linear-gradient(135deg, #F5F3FF 0%, #FFFFFF 40%, #EDE9FE 100%);
+    background: linear-gradient(135deg, #FFF9C9 0%, #FFFFFF 40%, #F5EDFF 100%);
     min-height: 100vh;
     color: var(--text-dark);
     overflow-x: hidden;
