@@ -977,7 +977,16 @@ async function handleUpload(event) {
         }
     } catch (e) {
         console.error('上传失败:', e);
-        alert('上传失败: ' + e.message);
+        let msg = '上传失败: ' + (e.message || '未知错误');
+        if (e.message && /permission|permissions|Missing or insufficient permissions/i.test(e.message)) {
+            msg = '上传失败：Firestore 权限不足。\n\n' +
+                  '请按以下步骤检查：\n' +
+                  '1. 打开 Firebase 控制台 → Firestore Database → 规则\n' +
+                  '2. 把规则替换成 firestore.rules 文件里的内容\n' +
+                  '3. 点击「发布」并等待 1-2 分钟生效\n\n' +
+                  '注意：pending 集合的 create 必须设置为 if true，否则匿名用户无法上传。';
+        }
+        alert(msg);
     } finally {
         if (submitBtn) {
             submitBtn.disabled = false;
