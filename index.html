@@ -6,12 +6,6 @@
     <title>Phoebe Hub - 全球最可爱的菲比表情包收集站</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>" />
     <link rel="stylesheet" href="css/style.css" />
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script src="js/firebase-config.js"></script>
-    <script src="js/cloudinary-config.js"></script>
     <style>
         /* ===== 上传区域 - 预览图覆盖摄像头位置 ===== */
         .file-upload {
@@ -383,7 +377,7 @@
             <div class="wuthering-section">
                 <h3 class="section-title">✨ 关于菲比</h3>
                 <div class="phoebe-info" style="text-align: center; padding: 10px 0;">
-                    <img src="images/top.png" alt="菲比" id="phoebeAvatar" style="cursor: pointer;" title="点击我试试？" onerror="this.src='https://via.placeholder.com/150x150/7B6BC6/FFFFFF?text=菲比'" />
+                    <img src="images/top.png" alt="菲比" id="phoebeAvatar" onerror="this.src='https://via.placeholder.com/150x150/7B6BC6/FFFFFF?text=菲比'" />
                     <div style="font-size: 20px; font-weight: 800; color: var(--text-dark); margin-bottom: 5px;">菲比</div>
                     <div style="font-size: 14px; color: var(--primary); font-weight: 700; margin-bottom: 10px;">教士 / 共鸣者</div>
                     <p style="font-size: 13px; color: var(--text-light); line-height: 1.6; text-align: left; font-weight: 600;">
@@ -426,164 +420,42 @@
         </div>
     </div>
 
-    <!-- ===== 修改：上传模态框 - 预览图在摄像头位置 ===== -->
+    <!-- 投稿指引模态框 -->
     <div class="modal-overlay" id="uploadModal" onclick="if(event.target === this) closeUploadModal()">
         <div class="modal-content">
             <button class="modal-close" onclick="closeUploadModal()">&times;</button>
             <div class="modal-header">
                 <h2>添加新菲比</h2>
             </div>
-            <form id="uploadForm" onsubmit="return handleUpload(event)">
-                <div class="review-notice">
-                    上传的内容需要经过站长审核后才能显示哦~
+            <div class="contribute-guide" style="line-height: 1.8; color: var(--text-dark);">
+                <p style="margin-bottom: 16px;">
+                    本站已切换为纯静态部署，不再提供网页直传。如果你想添加新的菲比表情包，请通过 GitHub 提交 Pull Request，站长审核通过后会合并上线。
+                </p>
+
+                <h3 style="font-size: 16px; margin: 18px 0 10px; color: var(--primary);">📌 投稿步骤</h3>
+                <ol style="padding-left: 20px; margin-bottom: 16px;">
+                    <li>访问 GitHub 仓库：<a href="https://github.com/Kato-Shoko705/Phoebe-Hub" target="_blank" style="color: var(--primary); text-decoration: underline;">Kato-Shoko705/Phoebe-Hub</a></li>
+                    <li>点击右上角 <strong>Fork</strong>，复制仓库到你的账号</li>
+                    <li>在你的 Fork 中，把图片放入 <code>images/</code> 文件夹</li>
+                    <li>运行仓库根目录的 <code>generate_memes.py</code>（或手动编辑 <code>data/memes.json</code>）生成新的数据</li>
+                    <li>提交修改，发起 Pull Request 到原仓库</li>
+                    <li>等待站长审核合并，合并后网站会自动更新</li>
+                </ol>
+
+                <h3 style="font-size: 16px; margin: 18px 0 10px; color: var(--primary);">📝 图片命名建议</h3>
+                <ul style="padding-left: 20px; margin-bottom: 16px;">
+                    <li>使用中文或英文，建议描述图片内容，例如 <code>开心菲比.webp</code></li>
+                    <li>支持格式：JPG、PNG、GIF、WebP</li>
+                    <li>建议单张不超过 2MB，过大会拖慢加载</li>
+                    <li>避免和已有图片重名</li>
+                </ul>
+
+                <div style="background: rgba(183,148,246,0.1); border-radius: 12px; padding: 14px; margin: 16px 0; font-size: 13px;">
+                    <strong>提示：</strong>如果你不会用 GitHub，也可以把图片发给站长 QQ：2491185992，由站长代为添加。
                 </div>
-                <div class="form-group">
-                    <label for="phoebeName">给菲比起个名字 *</label>
-                    <input type="text" id="phoebeName" placeholder="例如：菲比猪鼻、可爱菲比..." required />
-                </div>
 
-                <!-- ===== 修改的核心区域：预览图覆盖上传区 ===== -->
-                <div class="form-group">
-                    <label>选择图片 *</label>
-                    <div class="file-upload" id="fileUploadContainer">
-                        <!-- 隐藏的原生 input，点击整个区域触发 -->
-                        <input type="file" id="uploadFile" accept="image/jpeg,image/png,image/gif,image/webp" />
-
-                        <!-- 占位：摄像头 + 文字 -->
-                        <div class="file-upload-placeholder" id="uploadPlaceholder">
-                            <div class="file-upload-icon">📷</div>
-                            <div class="file-upload-text">
-                                点击或拖拽上传图片<br />
-                                <span>支持 JPG、PNG、GIF</span>
-                            </div>
-                        </div>
-
-                        <!-- 预览图：覆盖整个上传区域（默认隐藏） -->
-                        <img id="previewImage" class="preview-image" alt="预览" />
-
-                        <!-- 悬浮提示：重新上传 -->
-                        <div class="reupload-hint">🔄 点击更换图片</div>
-                    </div>
-                    <!-- 预览图已内嵌到 .file-upload 中，不再需要下方的 img -->
-                </div>
-                <!-- ===== 修改结束 ===== -->
-
-                <div class="form-group">
-                    <label>分类（可多选）</label>
-                    <div class="category-checkboxes" id="phoebeCategory">
-                        <label class="category-checkbox">
-                            <input type="checkbox" name="phoebeCategory" value="ai">
-                            <span>AI创作</span>
-                        </label>
-                        <label class="category-checkbox">
-                            <input type="checkbox" name="phoebeCategory" value="static">
-                            <span>静态图</span>
-                        </label>
-                        <label class="category-checkbox">
-                            <input type="checkbox" name="phoebeCategory" value="gif">
-                            <span>动态图</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="upload-hints" style="font-size: 12px; color: #999; margin: -10px 0 15px; line-height: 1.6;">
-                    支持 JPG/PNG/GIF/WebP，单张最大 10MB，每天最多上传 10 张
-                </div>
-                <div id="dedupNotice" class="dedup-notice" style="display:none;"></div>
-                <button type="submit" class="submit-btn">发布菲比</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 管理员登录弹窗 -->
-    <div class="modal-overlay" id="loginModal" onclick="if(event.target === this) closeLoginModal()">
-        <div class="modal-content login-content">
-            <button class="modal-close" onclick="closeLoginModal()">&times;</button>
-            <div class="modal-header">
-                <h2>管理员登录</h2>
+                <a href="https://github.com/Kato-Shoko705/Phoebe-Hub/fork" target="_blank" class="submit-btn" style="display: inline-block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box;">前往 GitHub Fork 仓库</a>
             </div>
-            <form id="loginForm" onsubmit="return handleLogin(event)">
-                <div class="form-group">
-                    <label for="adminEmail">邮箱</label>
-                    <input type="email" id="adminEmail" placeholder="管理员邮箱" required autocomplete="email" />
-                </div>
-                <div class="form-group">
-                    <label for="adminPassword">密码</label>
-                    <input type="password" id="adminPassword" placeholder="管理员密码" required autocomplete="current-password" />
-                </div>
-                <div id="loginError" class="login-error"></div>
-                <button type="submit" class="submit-btn">登录</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 管理员面板 -->
-    <div class="admin-panel" id="adminPanel">
-        <h3>审核面板</h3>
-        <p style="text-align: center; color: #999; padding: 20px;">暂无待审核内容</p>
-    </div>
-
-    <!-- 批量上传模态框（管理员专用） -->
-    <div class="modal-overlay" id="batchUploadModal" onclick="if(event.target === this) closeBatchUploadModal()">
-        <div class="modal-content" style="max-width: 600px;">
-            <button class="modal-close" onclick="closeBatchUploadModal()">&times;</button>
-            <div class="modal-header">
-                <h2>批量上传菲比</h2>
-                <p style="font-size: 13px; color: #999;">文件名将作为图片标题</p>
-            </div>
-            <div class="batch-upload-area" id="batchUploadArea">
-                <input type="file" id="batchUploadFile" accept="image/*" multiple />
-                <div class="file-upload-icon">📁</div>
-                <div class="file-upload-text">
-                    点击或拖拽批量上传图片<br />
-                    <span>支持多选，文件名自动作为标题</span>
-                </div>
-            </div>
-            <div class="batch-upload-list" id="batchUploadList"></div>
-            <div class="form-group">
-                <label>分类（可多选）</label>
-                <div class="category-checkboxes" id="batchCategory">
-                    <label class="category-checkbox">
-                        <input type="checkbox" name="batchCategory" value="ai">
-                        <span>AI创作</span>
-                    </label>
-                    <label class="category-checkbox">
-                        <input type="checkbox" name="batchCategory" value="static">
-                        <span>静态图</span>
-                    </label>
-                    <label class="category-checkbox">
-                        <input type="checkbox" name="batchCategory" value="gif">
-                        <span>动态图</span>
-                    </label>
-                </div>
-            </div>
-            <div class="upload-hints" style="font-size: 12px; color: #999; margin: -10px 0 15px; line-height: 1.6;">
-                单次最多 20 张，每张最大 10MB
-            </div>
-            <button type="button" class="submit-btn" onclick="handleBatchUpload()">批量发布</button>
-        </div>
-    </div>
-
-    <!-- 已发布批量管理模态框（管理员专用） -->
-    <div class="modal-overlay" id="bulkManageModal" onclick="if(event.target === this) closeBulkManageModal()">
-        <div class="modal-content" style="max-width: 800px;">
-            <button class="modal-close" onclick="closeBulkManageModal()">&times;</button>
-            <div class="modal-header">
-                <h2>已发布批量管理</h2>
-                <p style="font-size: 13px; color: #999;">勾选图片后可批量修改标签</p>
-            </div>
-            <div class="bulk-manage-actions">
-                <button type="button" class="review-btn approve" onclick="selectAllMemes()">全选</button>
-                <button type="button" class="review-btn approve" onclick="batchManageTag('featured', true)">设为精选</button>
-                <button type="button" class="review-btn approve" onclick="batchManageTag('recommended', true)">站长推荐</button>
-                <button type="button" class="review-btn" onclick="batchManageCategory('cute', true)" style="background: linear-gradient(135deg, #FF8A65 0%, #FF5722 100%); color: white;">设为超可爱</button>
-                <button type="button" class="review-btn tag-ai" onclick="batchManageCategory('ai', true)" style="background: linear-gradient(135deg, #26C6DA 0%, #00ACC1 100%); color: white;">设为AI创作</button>
-                <button type="button" class="review-btn tag" onclick="batchManageTag('featured', false)">取消精选</button>
-                <button type="button" class="review-btn tag" onclick="batchManageTag('recommended', false)">取消推荐</button>
-                <button type="button" class="review-btn tag" onclick="batchManageCategory('cute', false)">取消超可爱</button>
-                <button type="button" class="review-btn tag" onclick="batchManageCategory('ai', false)">取消AI创作</button>
-                <button type="button" class="review-btn reject" onclick="batchDeleteMemes()">批量删除</button>
-            </div>
-            <div class="bulk-manage-list" id="bulkManageList"></div>
         </div>
     </div>
 
@@ -618,134 +490,7 @@
         <img src="images/top.png" alt="菲比" onerror="this.src='https://via.placeholder.com/200x200/7B6BC6/FFFFFF?text=菲比'" />
     </div>
 
-    <script src="js/dedup.js"></script>
     <script src="js/main.js"></script>
-
-    <!-- ===== 修改：内联脚本 - 预览图控制 ===== -->
-    <script>
-        (function() {
-            'use strict';
-
-            const container = document.getElementById('fileUploadContainer');
-            const fileInput = document.getElementById('uploadFile');
-            const placeholder = document.getElementById('uploadPlaceholder');
-            const previewImg = document.getElementById('previewImage');
-
-            if (!container || !fileInput || !previewImg) return;
-
-            // ----- 文件选择处理 -----
-            function handleFileSelect(file) {
-                if (!file) {
-                    // 清空预览
-                    resetUploadArea();
-                    return;
-                }
-
-                // 只允许图片
-                if (!file.type.startsWith('image/')) {
-                    alert('请选择图片文件！');
-                    fileInput.value = '';
-                    resetUploadArea();
-                    return;
-                }
-
-                // 读取并显示预览
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImg.src = e.target.result;
-                    previewImg.classList.add('show');
-                    container.classList.add('has-image');
-                    // 占位隐藏（通过 CSS .has-image .file-upload-placeholder { display:none }）
-
-                    // 触发去重检查
-                    if (typeof window.onUploadFileSelected === 'function') {
-                        window.onUploadFileSelected(file);
-                    }
-                };
-                reader.onerror = function() {
-                    alert('读取图片失败，请重试');
-                };
-                reader.readAsDataURL(file);
-            }
-
-            // ----- 重置上传区（清空预览） -----
-            function resetUploadArea() {
-                previewImg.src = '';
-                previewImg.classList.remove('show');
-                container.classList.remove('has-image');
-                // 占位会自动显示（因为 .has-image 被移除）
-                fileInput.value = '';
-            }
-
-            // ----- 监听文件选择 -----
-            fileInput.addEventListener('change', function(e) {
-                const file = e.target.files && e.target.files[0];
-                handleFileSelect(file || null);
-            });
-
-            // ----- 拖拽支持 -----
-            let dragCounter = 0;
-
-            container.addEventListener('dragenter', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                dragCounter++;
-                container.classList.add('dragover');
-            });
-
-            container.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                container.classList.add('dragover');
-            });
-
-            container.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                dragCounter--;
-                if (dragCounter <= 0) {
-                    dragCounter = 0;
-                    container.classList.remove('dragover');
-                }
-            });
-
-            container.addEventListener('drop', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                dragCounter = 0;
-                container.classList.remove('dragover');
-
-                const files = e.dataTransfer.files;
-                if (files && files.length > 0) {
-                    const file = files[0];
-                    if (file.type.startsWith('image/')) {
-                        // 设置到 input
-                        const dataTransfer = new DataTransfer();
-                        dataTransfer.items.add(file);
-                        fileInput.files = dataTransfer.files;
-                        // 触发 change 事件
-                        const changeEvent = new Event('change', { bubbles: true });
-                        fileInput.dispatchEvent(changeEvent);
-                    } else {
-                        alert('请拖拽图片文件！');
-                    }
-                }
-            });
-
-            // ----- 暴露重置方法给外部（可选） -----
-            window.resetUploadArea = resetUploadArea;
-
-            // ----- 兼容原有的 handleUpload 函数 -----
-            // 保证提交时预览图存在，且能正常获取文件
-            // 原有的 handleUpload 在 main.js 中，它会读取 uploadFile 和 previewImage
-            // 我们保持 ID 不变，所以原有逻辑仍然有效
-
-            // 但如果原有 handleUpload 依赖 previewImage 的 src 来判断是否有图，
-            // 现在 previewImage 在容器内，src 依然可以正常读取，没问题。
-
-            console.log('✅ 上传预览已升级：图片显示在摄像头位置');
-        })();
-    </script>
 
 </body>
 </html>
