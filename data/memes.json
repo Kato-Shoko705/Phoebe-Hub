@@ -7908,9 +7908,8 @@
       "isGif": false,
       "hot": 0,
       "tags": []
-    }
-  ],
-  {
+    },
+    {
       "id": 523,
       "title": "异环哈哈",
       "url": "images/异环哈哈.webp",
@@ -7927,7 +7926,8 @@
         "featured",
         "recommended"
       ]
-  }
+    }
+  ],
   "pending": [],
   "nextId": 524
 }
