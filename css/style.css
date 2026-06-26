@@ -1549,178 +1549,210 @@ body::after {
     font-size: 14px;
 }
 
-/* 管理员面板 */
+/* ===== 管理员面板 ===== */
 .admin-panel {
     display: none;
     position: fixed;
-    top: 90px;
-    right: 20px;
-    background: rgba(255,255,255,0.88);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: var(--shadow-hover);
-    z-index: 1500;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.7);
-    min-width: 300px;
-    max-height: 500px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9000;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .admin-panel.active {
     display: block;
-    animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.admin-panel h3 {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: var(--text-dark);
-    padding-bottom: 10px;
+.admin-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
     border-bottom: 2px solid rgba(183,148,246,0.15);
-}
-
-.review-item {
+    padding: 14px 20px;
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px;
-    border-radius: 14px;
-    background: var(--white);
-    margin-bottom: 10px;
-    box-shadow: 0 2px 10px rgba(159,122,234,0.06);
+    flex-wrap: wrap;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
-.review-item img {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.review-item-info {
-    flex: 1;
-}
-
-.review-item-title {
-    font-size: 14px;
+.admin-floating-info {
+    position: sticky;
+    top: 72px;
+    z-index: 9;
+    margin: 0 20px;
+    padding: 12px 16px;
+    background: rgba(255, 193, 7, 0.15);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 0 0 12px 12px;
+    font-size: 13px;
     font-weight: 700;
+    color: #B45309;
+    text-align: center;
+    animation: slideDown 0.3s ease-out;
+}
+
+.admin-meme-list {
+    padding: 0 20px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.admin-search-wrap {
+    padding: 20px 0 16px;
+}
+.admin-search-wrap input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid rgba(183,148,246,0.2);
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+    background: var(--white);
+}
+.admin-search-wrap input:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(183,148,246,0.1);
+}
+
+.admin-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.admin-meme-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+.admin-meme-card:hover { border-color: rgba(183,148,246,0.2); }
+.admin-meme-card.modified { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(183,148,246,0.15); }
+
+.admin-meme-card .admin-meme-top {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.admin-meme-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.admin-meme-card .admin-meme-info { flex: 1; min-width: 0; }
+.admin-meme-card .admin-meme-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 6px;
+}
+.admin-meme-card .admin-meme-id { font-size: 11px; color: var(--text-light); margin-bottom: 8px; }
+
+.admin-meme-card .admin-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.admin-meme-card .admin-tag-chip {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    background: #f5f5f5;
+    color: #888;
+    transition: all 0.2s;
+    user-select: none;
+}
+.admin-meme-card .admin-tag-chip.selected {
+    border-color: var(--primary);
+    background: rgba(183,148,246,0.15);
+    color: var(--primary-dark);
+}
+
+.admin-meme-card .admin-control-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.admin-meme-card .admin-control-row:last-child { margin-bottom: 0; }
+.admin-meme-card .admin-control-row label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-light);
+    white-space: nowrap;
+    min-width: 42px;
+}
+.admin-meme-card .admin-control-row input[type="range"] {
+    flex: 1;
+    height: 6px;
+    accent-color: var(--primary);
+}
+.admin-meme-card .admin-control-row input[type="number"] {
+    flex: 1;
+    padding: 6px 10px;
+    border: 2px solid rgba(183,148,246,0.2);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    outline: none;
     color: var(--text-dark);
 }
-
-.review-item-date {
+.admin-meme-card .admin-control-row input[type="number"]:focus {
+    border-color: var(--primary-light);
+}
+.admin-meme-card .admin-control-row .admin-val {
     font-size: 12px;
-    color: var(--text-light);
+    font-weight: 800;
+    color: var(--primary-dark);
+    min-width: 28px;
+    text-align: center;
 }
 
-.review-actions {
-    display: flex;
-    gap: 8px;
+@media (max-width: 600px) {
+    .admin-meme-list { padding: 0 12px 30px; }
+    .admin-cards-grid { grid-template-columns: 1fr; }
+    .admin-toolbar { padding: 10px 14px; gap: 8px; }
 }
 
 .review-btn {
-    padding: 6px 14px;
+    padding: 8px 18px;
     border: none;
     border-radius: 10px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s;
     font-family: inherit;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
 }
+.review-btn:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(159,122,234,0.3); }
 
-.review-btn.approve {
-    background: linear-gradient(135deg, #86EFAC 0%, #22C55E 100%);
-    color: #064E3B;
-}
 
-.review-btn.reject {
-    background: linear-gradient(135deg, #FCA5A5 0%, #EF4444 100%);
-    color: #7F1D1D;
-}
-
-.review-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* 隐藏的管理员触发区域 */
-.admin-trigger {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* 批量审核复选框 */
-.review-checkbox {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    accent-color: var(--primary);
-}
-
-.batch-actions {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid rgba(183,148,246,0.15);
-}
-
-.batch-actions .review-btn {
-    flex: 1;
-    padding: 10px;
-    font-size: 14px;
-}
-
-/* 批量上传 */
-.batch-upload-list {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 15px;
-}
-
-.batch-upload-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background: var(--white);
-    border-radius: 12px;
-    margin-bottom: 8px;
-}
-
-.batch-upload-item img {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.batch-upload-item input {
-    flex: 1;
-    padding: 8px 12px;
-    border: 2px solid #eee;
-    border-radius: 10px;
-    font-size: 14px;
-    font-family: inherit;
-}
-
-.batch-upload-item input:focus {
-    border-color: var(--primary);
-    outline: none;
-}
 
 /* 图片懒加载占位 */
 .meme-image.lazy {

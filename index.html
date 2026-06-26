@@ -429,35 +429,52 @@
             </div>
             <div class="contribute-guide" style="line-height: 1.8; color: var(--text-dark);">
                 <p style="margin-bottom: 16px;">
-                    本站已切换为纯静态部署，不再提供网页直传。如果你想添加新的菲比表情包，请通过 GitHub 提交 Pull Request，站长审核通过后会合并上线。
+                    本站已切换为纯静态部署，不再提供网页直传。如果你想添加新的菲比表情包，可以通过以下两种方式投稿，站长审核通过后会合并上线。
                 </p>
 
-                <h3 style="font-size: 16px; margin: 18px 0 10px; color: var(--primary);">📌 投稿步骤</h3>
+                <h3 style="font-size: 16px; margin: 18px 0 10px; color: var(--primary);">📌 投稿方式一：查看哔哩哔哩主页置顶</h3>
                 <ol style="padding-left: 20px; margin-bottom: 16px;">
-                    <!-- <li>访问 GitHub 仓库：<a href="https://github.com/Kato-Shoko705/Phoebe-Hub" target="_blank" style="color: var(--primary); text-decoration: underline;">Kato-Shoko705/Phoebe-Hub</a></li>
-                    <li>点击右上角 <strong>Fork</strong>，复制仓库到你的账号</li>
-                    <li>在你的 Fork 中，把图片放入 <code>images/</code> 文件夹</li>
-                    <li>运行仓库根目录的 <code>generate_memes.py</code>（或手动编辑 <code>data/memes.json</code>）生成新的数据</li>
-                    <li>提交修改，发起 Pull Request 到原仓库</li>
-                    <li>等待站长审核合并，合并后网站会自动更新</li> -->
-                    <li>请等待站长发布哔哩哔哩视频教学（会很快的，大家不要着急）</li>
+                    <li>访问站长的哔哩哔哩主页：<a href="https://space.bilibili.com/1567654329?spm_id_from=333.1007.0.0" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 700;">点击前往</a></li>
+                    <li>查看主页<strong>置顶动态</strong>，获取最新投稿方式和要求</li>
+                    <li>如果置顶还没发，说明主播还在录制中，不过也快了，敬请期待</li>
                 </ol>
 
-                <!-- <h3 style="font-size: 16px; margin: 18px 0 10px; color: var(--primary);">📝 图片命名建议</h3>
+                <h3 style="font-size: 16px; margin: 18px 0 10px; color: var(--primary);">📌 投稿方式二：加入 QQ 群</h3>
+                <ol style="padding-left: 20px; margin-bottom: 16px;">
+                    <li>在本站顶部搜索框输入 <strong>QQ群</strong>，搜索群聊二维码图片</li>
+                    <li>扫码加入 QQ 群后，按群公告要求投稿菲比表情包</li>
+                    <li>也可以直接加站长 QQ：2491185992，由站长代为添加</li>
+                </ol>
+
+                <h3 style="font-size: 16px; margin: 18px 0 10px; color: var(--primary);">📝 图片命名建议</h3>
                 <ul style="padding-left: 20px; margin-bottom: 16px;">
                     <li>使用中文或英文，建议描述图片内容，例如 <code>开心菲比.webp</code></li>
                     <li>支持格式：JPG、PNG、GIF、WebP</li>
                     <li>建议单张不超过 2MB，过大会拖慢加载</li>
-                    <li>避免和已有图片重名</li>
-                </ul> -->
+                    <li>避免和已有图片重名，文件名不要以连续英文句号开头</li>
+                </ul>
 
                 <div style="background: rgba(183,148,246,0.1); border-radius: 12px; padding: 14px; margin: 16px 0; font-size: 13px;">
-                    <strong>提示：</strong>如果你不会用 GitHub，也可以把图片发给站长 QQ：2491185992，由站长代为添加。
+                    <strong>提示：</strong>如果你是技术玩家，也可以 Fork GitHub 仓库后提交 Pull Request，站长审核合并后网站会自动更新。
                 </div>
 
                 <a href="https://github.com/Kato-Shoko705/Phoebe-Hub/fork" target="_blank" class="submit-btn" style="display: inline-block; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box;">前往 GitHub Fork 仓库</a>
             </div>
         </div>
+    </div>
+
+    <!-- 管理员面板（快捷键 Ctrl+Shift+A 开启） -->
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-toolbar">
+            <span style="font-weight:800;color:#9F7AEA;">🔐 管理员模式</span>
+            <span style="font-size:13px;color:#999;" id="adminChangeCount">已修改 0 项</span>
+            <button class="review-btn" onclick="downloadAdminJson()">📥 下载 memes.json</button>
+            <button class="review-btn" style="background:#999;" onclick="toggleAdminMode()">退出管理</button>
+        </div>
+        <div class="admin-floating-info" id="adminToast" style="display:none;">
+            修改已记录，点击「下载 memes.json」导出后替换仓库文件
+        </div>
+        <div class="admin-meme-list" id="adminMemeList"></div>
     </div>
 
     <!-- 页脚 -->

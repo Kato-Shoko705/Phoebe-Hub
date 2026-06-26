@@ -495,9 +495,223 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ===== 管理员面板 =====
+let adminModifications = {};
+let adminOpen = false;
+
+const ADMIN_TAG_OPTIONS = [
+    { key: 'featured', label: '精选' },
+    { key: 'recommended', label: '站长推荐' }
+];
+
+function toggleAdminMode() {
+    const panel = document.getElementById('adminPanel');
+    if (!panel) return;
+    adminOpen = !adminOpen;
+    if (adminOpen) {
+        adminModifications = {};
+        panel.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        renderAdminPanel();
+        showToast('管理员模式已开启（Ctrl+Shift+A），修改后点击「下载 memes.json」导出');
+    } else {
+        panel.classList.remove('active');
+        document.body.style.overflow = '';
+        adminModifications = {};
+        updateAdminChangeCount();
+    }
+}
+
+function renderAdminPanel() {
+    const list = document.getElementById('adminMemeList');
+    if (!list) return;
+
+    window._adminMemes = [...memesData];
+    list.innerHTML = `
+        <div class="admin-search-wrap">
+            <input type="text" id="adminSearch" placeholder="搜索表情包名称..." oninput="filterAdminMemes()">
+        </div>
+        <div class="admin-cards-grid" id="adminCardsGrid"></div>
+    `;
+    renderAdminCardsGrid();
+}
+
+function filterAdminMemes() {
+    const q = (document.getElementById('adminSearch') || {}).value || '';
+    window._adminMemes = q
+        ? memesData.filter(m => m.title && m.title.toLowerCase().includes(q.toLowerCase()))
+        : [...memesData];
+    renderAdminCardsGrid();
+}
+
+function renderAdminCardsGrid() {
+    const grid = document.getElementById('adminCardsGrid');
+    if (!grid) return;
+    const memes = window._adminMemes || memesData;
+    grid.innerHTML = memes.map(meme => renderAdminCard(meme)).join('');
+}
+
+function renderAdminCard(meme) {
+    const currentTags = getAdminTags(meme.id);
+    const currentHot = getAdminHot(meme.id);
+    const currentDownloads = getAdminDownloads(meme.id);
+
+    return `
+    <div class="admin-meme-card" id="adminCard-${meme.id}">
+        <div class="admin-meme-top">
+            <img src="${meme.url}" alt="${escapeHtml(meme.title || '')}" loading="lazy" onerror="this.src='https://via.placeholder.com/80x80/B794F6/FFFFFF?text=%E8%8F%B2%E6%AF%94'">
+            <div class="admin-meme-info">
+                <div class="admin-meme-title">${escapeHtml(meme.title || '未命名')}</div>
+                <div class="admin-meme-id">ID: ${meme.id} · ${meme.isGif ? 'GIF' : '静态'} · 日期 ${meme.date || ''}</div>
+                <div class="admin-tag-row">
+                    ${ADMIN_TAG_OPTIONS.map(tag => `
+                        <span class="admin-tag-chip${currentTags.includes(tag.key) ? ' selected' : ''}"
+                            onclick="toggleAdminTag(${meme.id}, '${tag.key}', this)">${tag.label}</span>
+                    `).join('')}
+                </div>
+                <div class="admin-control-row">
+                    <label>热度</label>
+                    <input type="range" min="0" max="100" value="${currentHot}"
+                        oninput="updateAdminHot(${meme.id}, this.value)">
+                    <span class="admin-val hot-val">${currentHot}</span>
+                </div>
+                <div class="admin-control-row">
+                    <label>下载量</label>
+                    <input type="number" min="0" value="${currentDownloads}"
+                        oninput="updateAdminDownloads(${meme.id}, this.value)">
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+function getAdminTags(id) {
+    const key = String(id);
+    if (adminModifications[key] && adminModifications[key].tags !== undefined) {
+        return adminModifications[key].tags;
+    }
+    const meme = memesData.find(m => m.id === id);
+    return meme ? (meme.tags || []) : [];
+}
+
+function getAdminHot(id) {
+    const key = String(id);
+    if (adminModifications[key] && adminModifications[key].hot !== undefined) {
+        return adminModifications[key].hot;
+    }
+    const meme = memesData.find(m => m.id === id);
+    return meme ? (meme.hot || 0) : 0;
+}
+
+function getAdminDownloads(id) {
+    const key = String(id);
+    if (adminModifications[key] && adminModifications[key].downloads !== undefined) {
+        return adminModifications[key].downloads;
+    }
+    const meme = memesData.find(m => m.id === id);
+    return meme ? (meme.downloads || 0) : 0;
+}
+
+function toggleAdminTag(id, tagKey, el) {
+    const key = String(id);
+    if (!adminModifications[key]) adminModifications[key] = {};
+    if (!adminModifications[key].tags) adminModifications[key].tags = [...getAdminTags(id)];
+
+    const tags = adminModifications[key].tags;
+    const idx = tags.indexOf(tagKey);
+    if (idx >= 0) {
+        tags.splice(idx, 1);
+        el.classList.remove('selected');
+    } else {
+        tags.push(tagKey);
+        el.classList.add('selected');
+    }
+    markCardModified(id);
+    updateAdminChangeCount();
+}
+
+function updateAdminHot(id, value) {
+    const val = parseInt(value) || 0;
+    const key = String(id);
+    if (!adminModifications[key]) adminModifications[key] = {};
+    adminModifications[key].hot = val;
+
+    const card = document.getElementById('adminCard-' + id);
+    if (card) {
+        const valSpan = card.querySelector('.admin-val.hot-val');
+        if (valSpan) valSpan.textContent = val;
+    }
+    markCardModified(id);
+    updateAdminChangeCount();
+}
+
+function updateAdminDownloads(id, value) {
+    const val = parseInt(value) || 0;
+    const key = String(id);
+    if (!adminModifications[key]) adminModifications[key] = {};
+    adminModifications[key].downloads = val;
+    markCardModified(id);
+    updateAdminChangeCount();
+}
+
+function markCardModified(id) {
+    const card = document.getElementById('adminCard-' + id);
+    if (card) card.classList.add('modified');
+}
+
+function updateAdminChangeCount() {
+    const countEl = document.getElementById('adminChangeCount');
+    if (!countEl) return;
+    const count = Object.keys(adminModifications).length;
+    countEl.textContent = '已修改 ' + count + ' 项';
+    const toast = document.getElementById('adminToast');
+    if (toast) toast.style.display = count > 0 ? 'block' : 'none';
+}
+
+function downloadAdminJson() {
+    const modified = memesData.map(m => {
+        const key = String(m.id);
+        const mod = adminModifications[key] || {};
+        return {
+            ...m,
+            tags: mod.tags !== undefined ? mod.tags : (m.tags || []),
+            hot: mod.hot !== undefined ? mod.hot : (m.hot || 0),
+            downloads: mod.downloads !== undefined ? mod.downloads : (m.downloads || 0)
+        };
+    });
+
+    const result = {
+        memes: modified,
+        pending: [],
+        nextId: modified.length + 1
+    };
+
+    const jsonStr = JSON.stringify(result, null, 2);
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'memes.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('memes.json 已导出，请替换仓库 data/memes.json 后提交推送');
+}
+
 // 键盘事件
 document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        e.preventDefault();
+        toggleAdminMode();
+        return;
+    }
     if (e.key === 'Escape') {
+        if (adminOpen) {
+            toggleAdminMode();
+            return;
+        }
         closeLightbox();
         closeUploadModal();
         closeNoticeModal();
