@@ -7926,8 +7926,25 @@
         "featured",
         "recommended"
       ]
+    },
+    {
+      "id": 524,
+      "title": "淹水菲比",
+      "url": "images/淹水菲比.jpg",
+      "category": [
+        "static"        
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-27",
+      "isGif": false,
+      "hot": 12,
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     }
   ],
   "pending": [],
-  "nextId": 524
+  "nextId": 525
 }
