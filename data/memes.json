@@ -7932,7 +7932,7 @@
       "title": "淹水菲比",
       "url": "images/淹水菲比.jpg",
       "category": [
-        "static"        
+        "static"
       ],
       "views": 0,
       "downloads": 0,
@@ -7949,7 +7949,7 @@
       "title": "一想到你是原潮...p,我的心态就崩了",
       "url": "images/一想到你是原潮...p,我的心态就崩了.webp",
       "category": [
-        "static"        
+        "static"
       ],
       "views": 0,
       "downloads": 0,
@@ -7960,8 +7960,21 @@
         "featured",
         "recommended"
       ]
+    },
+    {
+      "id": 526,
+      "title": "test_完整流程",
+      "url": "images/test_完整流程.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-28",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
-  ],
-  "pending": [],
-  "nextId": 526
+  ]
 }
