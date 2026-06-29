@@ -8005,8 +8005,83 @@
       "isGif": false,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 529,
+      "title": "偷吃水果菲比",
+      "url": "images/偷吃水果菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-28",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 530,
+      "title": "哭闹肥比",
+      "url": "images/哭闹肥比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-28",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 531,
+      "title": "抱星菲比",
+      "url": "images/抱星菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-28",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 532,
+      "title": "跑步肥比",
+      "url": "images/跑步肥比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-28",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 533,
+      "title": "踢猫菲比",
+      "url": "images/踢猫菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-28",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 529
+  "nextId": 534
 }
