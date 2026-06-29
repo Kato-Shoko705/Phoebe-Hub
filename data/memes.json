@@ -8080,8 +8080,143 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 534,
+      "title": "变汉堡菲比",
+      "url": "images/变汉堡菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 535,
+      "title": "吸溜菲比",
+      "url": "images/吸溜菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 536,
+      "title": "干饭菲比",
+      "url": "images/干饭菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 537,
+      "title": "开心菲比",
+      "url": "images/开心菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 538,
+      "title": "投喂泔水菲比",
+      "url": "images/投喂泔水菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 539,
+      "title": "暴怒菲比",
+      "url": "images/暴怒菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 540,
+      "title": "菲比寻肠",
+      "url": "images/菲比寻肠.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 541,
+      "title": "镇压酷狗菲比",
+      "url": "images/镇压酷狗菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 542,
+      "title": "震惊菲比",
+      "url": "images/震惊菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-06-29",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 534
+  "nextId": 543
 }
