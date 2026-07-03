@@ -7892,7 +7892,9 @@
       "date": "2026-06-26",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     },
     {
       "id": 523,
@@ -8214,7 +8216,9 @@
       "date": "2026-06-30",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     },
     {
       "id": 544,
@@ -8634,7 +8638,10 @@
       "date": "2026-06-30",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "recommended",
+        "featured"
+      ]
     },
     {
       "id": 572,
@@ -8649,7 +8656,9 @@
       "date": "2026-06-30",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "recommended"
+      ]
     },
     {
       "id": 573,
@@ -8664,7 +8673,9 @@
       "date": "2026-06-30",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "recommended"
+      ]
     },
     {
       "id": 574,
@@ -8679,7 +8690,9 @@
       "date": "2026-06-30",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "recommended"
+      ]
     },
     {
       "id": 575,
@@ -8814,7 +8827,10 @@
       "date": "2026-07-02",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     },
     {
       "id": 584,
@@ -8829,7 +8845,10 @@
       "date": "2026-07-02",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     },
     {
       "id": 585,
@@ -8963,7 +8982,10 @@
       "date": "2026-07-02",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     },
     {
       "id": 594,
@@ -9154,11 +9176,14 @@
         "cute"
       ],
       "views": 0,
-      "downloads": 0,
+      "downloads": 666,
       "date": "2026-07-03",
       "isGif": false,
-      "hot": 0,
-      "tags": []
+      "hot": 77,
+      "tags": [
+        "recommended",
+        "featured"
+      ]
     },
     {
       "id": 607,
@@ -9173,7 +9198,10 @@
       "date": "2026-07-03",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "recommended",
+        "featured"
+      ]
     },
     {
       "id": 608,
@@ -9188,7 +9216,9 @@
       "date": "2026-07-03",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     },
     {
       "id": 609,
@@ -9203,7 +9233,9 @@
       "date": "2026-07-03",
       "isGif": true,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     },
     {
       "id": 610,
@@ -9218,7 +9250,10 @@
       "date": "2026-07-03",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "recommended",
+        "featured"
+      ]
     },
     {
       "id": 611,
@@ -9233,7 +9268,9 @@
       "date": "2026-07-03",
       "isGif": true,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     },
     {
       "id": 612,
@@ -9248,7 +9285,10 @@
       "date": "2026-07-03",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     },
     {
       "id": 613,
@@ -9293,7 +9333,10 @@
       "date": "2026-07-03",
       "isGif": true,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     },
     {
       "id": 616,
@@ -9323,7 +9366,9 @@
       "date": "2026-07-03",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     },
     {
       "id": 618,
@@ -9338,7 +9383,9 @@
       "date": "2026-07-03",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     },
     {
       "id": 619,
@@ -9353,9 +9400,11 @@
       "date": "2026-07-03",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured"
+      ]
     }
   ],
   "pending": [],
-  "nextId": 620
+  "nextId": 619
 }
