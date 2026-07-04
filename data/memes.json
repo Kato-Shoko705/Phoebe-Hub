@@ -9478,8 +9478,23 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 624,
+      "title": "祈祷菲比",
+      "url": "images/祈祷菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-04",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 624
+  "nextId": 625
 }
