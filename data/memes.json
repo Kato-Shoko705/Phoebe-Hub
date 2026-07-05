@@ -9748,8 +9748,98 @@
       "isGif": false,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 642,
+      "title": "兔比",
+      "url": "images/菲比戴假发.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-05",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 643,
+      "title": "玩积木菲比",
+      "url": "images/玩积木菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-05",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 644,
+      "title": "真是被看扁了啊",
+      "url": "images/真是被看扁了啊.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-05",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 645,
+      "title": "菲比吃火锅",
+      "url": "images/菲比吃火锅.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-05",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 646,
+      "title": "菲比糯糯打篮球",
+      "url": "images/菲比糯糯打篮球.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-05",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 647,
+      "title": "菲比衍射糯糯",
+      "url": "images/菲比深鞠躬.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-05",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 642
+  "nextId": 648
 }
