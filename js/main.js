@@ -1,15 +1,6 @@
 // Phoebe Hub - 纯静态版本
 // 数据来源：data/memes.json + images/ 文件夹
 
-const DATA_REPO_BASE = 'https://kato-shoko705.github.io/Phoebe-Hub-Data';
-const MEMES_JSON_URL = `${DATA_REPO_BASE}/data/memes.json`;
-
-function resolveMemeUrl(url) {
-    if (!url) return '';
-    if (/^https?:\/\//i.test(url)) return url;
-    return `${DATA_REPO_BASE}/${url.replace(/^\/+/, '')}`;
-}
-
 let memesData = [];
 let currentCategory = 'all';
 let currentSort = 'newest';
@@ -52,15 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // 加载本地静态数据
 async function loadData() {
     try {
-        const response = await fetch(MEMES_JSON_URL, {
-            cache: 'no-store'
-        });
+        const response = await fetch('data/memes.json');
         if (!response.ok) throw new Error('加载数据失败');
         const data = await response.json();
         memesData = (data.memes || []).map((m, idx) => ({
             id: m.id || idx + 1,
             title: m.title || '未命名',
-            url: resolveMemeUrl(m.url),
+            url: m.url,
             category: m.category || ['cute'],
             views: m.views || 0,
             downloads: m.downloads || 0,
