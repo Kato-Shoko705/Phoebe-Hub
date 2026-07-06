@@ -9913,8 +9913,23 @@
       "isGif": false,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 653,
+      "title": "鸣潮启动哈哈",
+      "url": "images/鸣潮启动哈哈.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-06",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 653
+  "nextId": 654
 }
