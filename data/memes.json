@@ -10093,8 +10093,25 @@
       "isGif": false,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 665,
+      "title": "呜太过分了",
+      "url": "images/呜太过分了.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-08",
+      "isGif": false,
+      "hot": 0,
+      "tags": [
+        "featured"
+      ]
     }
   ],
   "pending": [],
-  "nextId": 665
+  "nextId": 666
 }
