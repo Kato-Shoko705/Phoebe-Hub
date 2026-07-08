@@ -10110,8 +10110,73 @@
       "tags": [
         "featured"
       ]
+    },
+    {
+      "id": 666,
+      "title": "利群哈哈",
+      "url": "images/利群哈哈.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-08",
+      "isGif": false,
+      "hot": 0,
+      "tags": [
+        "recommended"
+      ]
+    },
+    {
+      "id": 667,
+      "title": "十连出奇迹卧槽雪豹你怎么也在这里",
+      "url": "images/十连出奇迹卧槽雪豹你怎么也在这里.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-08",
+      "isGif": false,
+      "hot": 0,
+      "tags": [
+        "featured",
+        "recommended"
+      ]
+    },
+    {
+      "id": 668,
+      "title": "菲比纵横宇宙",
+      "url": "images/菲比纵横宇宙.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-08",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 669,
+      "title": "跟你说不来",
+      "url": "images/跟你说不来.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-08",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 666
+  "nextId": 670
 }
