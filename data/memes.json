@@ -10178,21 +10178,6 @@
     },
     {
       "id": 670,
-      "title": "太极拳掌门人张三菲比",
-      "url": "images/太极拳掌门人张三菲比.gif",
-      "category": [
-        "static",
-        "cute"
-      ],
-      "views": 0,
-      "downloads": 0,
-      "date": "2026-07-09",
-      "isGif": true,
-      "hot": 0,
-      "tags": []
-    },
-    {
-      "id": 671,
       "title": "好奇怪今天一进群就感觉你们欠我i50块",
       "url": "images/好奇怪今天一进群就感觉你们欠我i50块.webp",
       "category": [
@@ -10207,7 +10192,7 @@
       "tags": []
     },
     {
-      "id": 672,
+      "id": 671,
       "title": "阿尼亚",
       "url": "images/阿尼亚.gif",
       "category": [
@@ -10223,5 +10208,5 @@
     }
   ],
   "pending": [],
-  "nextId": 673
+  "nextId": 672
 }
