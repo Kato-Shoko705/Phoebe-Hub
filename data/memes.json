@@ -10415,8 +10415,23 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 686,
+      "title": "小资历闹麻了",
+      "url": "images/小资历闹麻了.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-07-11",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 686
+  "nextId": 687
 }
