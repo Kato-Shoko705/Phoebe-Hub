@@ -10914,8 +10914,70 @@
       "tags": [
         "featured"
       ]
+    },
+    {
+      "id": 719,
+      "title": "可以称帝了",
+      "url": "images/可以称帝了.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-03",
+      "isGif": false,
+      "hot": 0,
+      "tags": [
+        "featured"
+      ]
+    },
+    {
+      "id": 720,
+      "title": "捆绑哈哈",
+      "url": "images/捆绑哈哈.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-03",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 721,
+      "title": "漂爷陛下您吉祥",
+      "url": "images/漂爷陛下您吉祥.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-03",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 722,
+      "title": "被控制了唔唔",
+      "url": "images/被控制了唔唔.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-03",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 719
+  "nextId": 723
 }
