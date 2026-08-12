@@ -11395,7 +11395,10 @@
       "date": "2026-08-11",
       "isGif": false,
       "hot": 0,
-      "tags": []
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     },
     {
       "id": 751,
