@@ -11939,8 +11939,26 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 787,
+      "title": "剑仙哈哈",
+      "url": "images/剑仙哈哈.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-21",
+      "isGif": false,
+      "hot": 0,
+      "tags": [
+        "featured",
+        "recommended"
+      ]
     }
   ],
   "pending": [],
-  "nextId": 787
+  "nextId": 788
 }
