@@ -11864,8 +11864,83 @@
       "isGif": false,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 782,
+      "title": "哈哈哈哈",
+      "url": "images/哈哈哈哈.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-21",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 783,
+      "title": "多充钱少抱怨",
+      "url": "images/多充钱少抱怨.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-21",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 784,
+      "title": "我下的任务罢了",
+      "url": "images/我下的任务罢了.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-21",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 785,
+      "title": "章鱼哥",
+      "url": "images/章鱼哥.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-21",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 786,
+      "title": "转铃菲比",
+      "url": "images/转铃菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-08-21",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 782
+  "nextId": 787
 }
