@@ -12619,8 +12619,68 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 832,
+      "title": "地球是如何转动的",
+      "url": "images/地球是如何转动的.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-09",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 833,
+      "title": "快点选一个",
+      "url": "images/快点选一个.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-09",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 834,
+      "title": "猪蹦迪",
+      "url": "images/猪蹦迪.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-09",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 835,
+      "title": "要是花群友体力涨我的调谐器就好了",
+      "url": "images/要是花群友体力涨我的调谐器就好了.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-09",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 832
+  "nextId": 836
 }
