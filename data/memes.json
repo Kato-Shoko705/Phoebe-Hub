@@ -12925,8 +12925,23 @@
       "isGif": false,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 852,
+      "title": "哇菲比",
+      "url": "images/哇菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-16",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 852
+  "nextId": 853
 }
