@@ -14832,8 +14832,68 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 979,
+      "title": "创造世界哈哈",
+      "url": "images/创造世界哈哈.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-28",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 980,
+      "title": "菲可比罗",
+      "url": "images/菲可比罗.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-28",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 981,
+      "title": "菲比主教证件照",
+      "url": "images/菲比主教证件照.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-28",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 982,
+      "title": "菲比跳楼梯",
+      "url": "images/菲比跳楼梯.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-09-28",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 979
+  "nextId": 983
 }
