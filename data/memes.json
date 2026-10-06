@@ -16062,8 +16062,98 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 1061,
+      "title": "偷吃汉堡",
+      "url": "images/偷吃汉堡.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-06",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1062,
+      "title": "动力菲比",
+      "url": "images/动力菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-06",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1063,
+      "title": "发大财",
+      "url": "images/发大财.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-06",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1064,
+      "title": "怎么跌停了",
+      "url": "images/怎么跌停了.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-06",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1065,
+      "title": "杀猪菲比",
+      "url": "images/杀猪菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-06",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1066,
+      "title": "菲比摇滚",
+      "url": "images/菲比摇滚.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-06",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 1061
+  "nextId": 1067
 }
