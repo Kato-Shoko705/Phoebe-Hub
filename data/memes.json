@@ -16152,8 +16152,83 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 1067,
+      "title": "天天0提升玩尼玛",
+      "url": "images/天天0提升玩尼玛.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-07",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1068,
+      "title": "捏脸菲比",
+      "url": "images/捏脸菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-07",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1069,
+      "title": "群聊之火哈哈",
+      "url": "images/群聊之火哈哈.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-07",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1070,
+      "title": "老实赚钱很枯燥吧",
+      "url": "images/老实赚钱很枯燥吧.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-07",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1071,
+      "title": "菲比飞帽",
+      "url": "images/菲比飞帽.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-07",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 1067
+  "nextId": 1072
 }
