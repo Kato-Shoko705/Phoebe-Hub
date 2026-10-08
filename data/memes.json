@@ -16227,8 +16227,98 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 1072,
+      "title": "苏卡菲比",
+      "url": "images/苏卡菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-08",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1073,
+      "title": "菲比分汉堡",
+      "url": "images/菲比分汉堡.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-08",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1074,
+      "title": "菲比扭扭",
+      "url": "images/菲比扭扭.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-08",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1075,
+      "title": "菲比花手摇",
+      "url": "images/菲比花手摇.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-08",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1076,
+      "title": "菲比遛狗",
+      "url": "images/菲比遛狗.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-08",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1077,
+      "title": "菲的翅膀",
+      "url": "images/菲的翅膀.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-08",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 1072
+  "nextId": 1078
 }
