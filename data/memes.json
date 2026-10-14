@@ -16512,8 +16512,36 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },{
+      "id": 1091,
+      "title": "菲比旋转坐(哦耶耶)",
+      "url": "images/菲比旋转坐.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },{
+      "id": 1092,
+      "title": "菲比鳄鱼扭",
+      "url": "images/菲比鳄鱼扭.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 1091
+  "nextId": 1093
 }
