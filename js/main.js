@@ -208,6 +208,12 @@ function getOptimizedUrl(url) {
     return url;
 }
 
+// 校验 URL 协议，防止 javascript: 等伪协议注入 (CWE-79)
+function isSafeMemeUrl(url) {
+    if (typeof url !== 'string') return false;
+    return /^(https?:\/\/|\/|\.\/|\.\.\/)/i.test(url);
+}
+
 // 渲染表情包
 function renderMemes() {
     const grid = document.getElementById('memeGrid');
