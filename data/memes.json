@@ -16512,7 +16512,8 @@
       "isGif": true,
       "hot": 0,
       "tags": []
-    },{
+    },
+    {
       "id": 1091,
       "title": "菲比旋转坐(哦耶耶)",
       "url": "images/菲比旋转坐.gif",
@@ -16526,7 +16527,8 @@
       "isGif": true,
       "hot": 0,
       "tags": []
-    },{
+    },
+    {
       "id": 1092,
       "title": "菲比鳄鱼扭",
       "url": "images/菲比鳄鱼扭.gif",
@@ -16540,8 +16542,338 @@
       "isGif": true,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 1093,
+      "title": "伪人菲比",
+      "url": "images/伪人菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1094,
+      "title": "别怕 我会让群友变得非常美味的",
+      "url": "images/别怕 我会让群友变得非常美味的.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1095,
+      "title": "塔菲比",
+      "url": "images/塔菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1096,
+      "title": "摸摸菲比",
+      "url": "images/摸摸菲比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1097,
+      "title": "真让人失望",
+      "url": "images/真让人失望.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1098,
+      "title": "神了",
+      "url": "images/神了.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1099,
+      "title": "积木菲比",
+      "url": "images/积木菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1100,
+      "title": "绑架菲比",
+      "url": "images/绑架菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1101,
+      "title": "至此间 我知觉见流年应有限",
+      "url": "images/至此间 我知觉见流年应有限.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1102,
+      "title": "菲比",
+      "url": "images/菲比_1.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1103,
+      "title": "菲比功夫",
+      "url": "images/菲比功夫.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1104,
+      "title": "菲比咬耳朵",
+      "url": "images/菲比咬耳朵.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1105,
+      "title": "菲比屁股扭扭",
+      "url": "images/菲比屁股扭扭.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1106,
+      "title": "菲比恳求",
+      "url": "images/菲比恳求.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1107,
+      "title": "菲比打困",
+      "url": "images/菲比打困.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1108,
+      "title": "菲比扮鬼脸",
+      "url": "images/菲比扮鬼脸.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1109,
+      "title": "菲比昏睡",
+      "url": "images/菲比昏睡.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1110,
+      "title": "菲比比心",
+      "url": "images/菲比比心.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1111,
+      "title": "菲比竹林生气",
+      "url": "images/菲比竹林生气.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1112,
+      "title": "菲比说黄文",
+      "url": "images/菲比说黄文.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1113,
+      "title": "蜂医菲比跳舞",
+      "url": "images/蜂医菲比跳舞.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
+    },
+    {
+      "id": 1114,
+      "title": "赌狗菲比",
+      "url": "images/赌狗菲比.webp",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-14",
+      "isGif": false,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 1093
+  "nextId": 1115
 }
