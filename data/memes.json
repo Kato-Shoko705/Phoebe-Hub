@@ -16902,8 +16902,23 @@
       "isGif": false,
       "hot": 0,
       "tags": []
+    },
+    {
+      "id": 1117,
+      "title": "瓜比",
+      "url": "images/瓜比.gif",
+      "category": [
+        "static",
+        "cute"
+      ],
+      "views": 0,
+      "downloads": 0,
+      "date": "2026-10-15",
+      "isGif": true,
+      "hot": 0,
+      "tags": []
     }
   ],
   "pending": [],
-  "nextId": 1117
+  "nextId": 1118
 }
